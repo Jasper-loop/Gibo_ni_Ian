@@ -14,7 +14,7 @@
 		do{
 			try{
 				if(enter > make && enter < (make+20))throw "your number is high";
-				if(enter < make || enter > (make-20))throw "your number is low";
+				if(enter < make && enter > (make-20))throw "your number is low";
 				if(enter > (make+20))throw "your number is too high!";
 				if(enter > 100)throw "you should input a number that is less than or equal to 100";
 			}catch(err){
