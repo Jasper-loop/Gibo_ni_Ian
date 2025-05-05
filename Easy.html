@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hangman</title>
+	<style>
+		*{
+     	margin:0;
+     	padding:0;
+     	box-sizing: border-box;
+     }
+     body{
+     	display: flex;
+     	justify-content:center;
+     	align-items: center;
+     	height: 100vh;
+     }
+     .container{
+     	border:none;
+     	height: 80%;
+     	width:70%;
+     	border-radius:20px;
+     	background-color:darkgrey;
+     	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     }
+     #main_header{
+     	text-align: center;
+     	padding:20px;
+     	font-family:"Brandon Grotesque", sans-serif;
+     	font-weight:800;
+     	font-size: 40pt;
+     }
+    #doom{
+    	color:darkred;
+    }
+    .box{
+    	padding:20px;
+    	margin:50px 50px;
+    	display:flex;
+    }
+    .box_container{
+        width:100%;
+    	height: 50vh;
+    	padding:20px;
+    	border:2px solid;
+    	margin-left:10px;
+    }
+    .blank{
+    	display: flex;
+    	justify-content: center;
+    	gap:10%;
+    	margin-bottom:50px;
+    }
+    .b{
+    	font-size:90px;
+    }
+    .i{
+    	font-size:90px;
+    }
+    .r{
+    	font-size:90px;
+    }
+    .d{
+    	font-size:90px;
+    }
+    .Fletters{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .Q{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .W{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .E{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .R{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .T{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .Y{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .U{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .I{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .O{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .P{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .Sletters{
+    	display: flex;
+        justify-content: space-evenly;
+        margin:10px;
+    }
+    .A{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .S{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .D{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .F{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .G{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .H{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .J{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .K{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .L{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .Tletters{
+    	display: flex;
+        justify-content: space-evenly;
+        margin:15px;
+    }
+    .Z{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .X{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .C{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .V{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .B{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .N{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .M{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    p{
+    	text-align:center;
+    	font-size: 18px;
+    	margin:10px;
+    }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1 id="main_header">Sentence of <span id="doom">Doom</span></h1>
+		<div class="box">
+			<img src="hangman-0.svg">
+			<div class="box_container">
+			<div class="blank">
+				<div class="b">_</div>
+				<div class="i">_</div>
+				<div class="r">_</div>
+				<div class="d">_</div>
+			</div>
+			<p>It is a flying animal with wings</p>
+			<div class="Letter">
+			<div class="Fletters">
+				<div class="Q">Q</div>
+				<div class="W">W</div>
+				<div class="E">E</div>
+				<div class="R">R</div>
+				<div class="T">T</div>
+				<div class="Y">Y</div>
+				<div class="U">U</div>
+				<div class="I">I</div>
+				<div class="O">O</div>
+				<div class="P">P</div>
+			</div>
+			<div class="Sletters">
+				<div class="A">A</div>
+				<div class="S">S</div>
+				<div class="D">D</div>
+				<div class="F">F</div>
+				<div class="G">G</div>
+				<div class="H">H</div>
+				<div class="J">J</div>
+				<div class="K">K</div>
+				<div class="L">L</div>
+			</div>
+			<div class="Tletters">
+				<div class="Z">Z</div>
+				<div class="X">Z</div>
+				<div class="C">Z</div>
+				<div class="V">Z</div>
+				<div class="B">Z</div>
+				<div class="N">Z</div>
+				<div class="M">Z</div>
+			</div>
+			</div>
+		    </div>
+		</div>
+	</div>
+
+
+</body>
+</html>
