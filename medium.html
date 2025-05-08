@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hangman</title>
+	<style>
+		*{
+     	margin:0;
+     	padding:0;
+     	box-sizing: border-box;
+     }
+     body{
+     	display: flex;
+     	justify-content:center;
+     	align-items: center;
+     	height: 100vh;
+     }
+     .container{
+     	border:none;
+     	height: 80%;
+     	width:70%;
+     	border-radius:20px;
+     	background-color:darkgrey;
+     	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     }
+     #main_header{
+     	text-align: center;
+     	padding:20px;
+     	font-family:"Brandon Grotesque", sans-serif;
+     	font-weight:800;
+     	font-size: 40pt;
+     }
+    #doom{
+    	color:darkred;
+    }
+    .box{
+    	padding:20px;
+    	margin:50px 50px;
+    	display:flex;
+        position: relative;
+    }
+    .box_container{
+        width:100%;
+    	height: 50vh;
+    	padding:20px;
+    	border:2px solid;
+    	margin-left:10px;
+    }
+    .blank{
+    	display: flex;
+    	justify-content: center;
+    	gap:5%;
+    	margin-bottom:50px;
+    }
+    .p{
+    	font-size:90px;
+    }
+    .h{
+    	font-size:90px;
+    }
+    .a{
+    	font-size:90px;
+    }
+    .r{
+    	font-size:90px;
+    }
+    .a{
+    	font-size:90px;
+    }
+    .o{
+    	font-size:90px;
+    }
+    .h{
+    	font-size:90px;
+    }
+    .Fletters{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .Q{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .W{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .E{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .R{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .T{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .Y{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .U{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .I{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .O{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .P{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .Sletters{
+    	display: flex;
+        justify-content: space-evenly;
+        margin:10px;
+    }
+    .A{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .S{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .D{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .F{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .G{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .H{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .J{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .K{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .L{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .Tletters{
+    	display: flex;
+        justify-content: space-evenly;
+        margin:15px;
+    }
+    .Z{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .X{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .C{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .V{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .B{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .N{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    .M{
+    	border:2px solid;
+    	padding:15px;
+    	font-size:20px;
+    	font-weight: bold;
+    }
+    p{
+    	text-align:center;
+    	font-size: 18px;
+    	margin:20px;
+    }
+    button{
+        background-color: darkred;
+        padding:20px;
+        border-radius: 0 20px 20px 0;
+        cursor:pointer;
+        font-size: 20px;
+        font-weight: 700;
+    }
+    button:hover{
+        background-color: red;
+    }
+    #Hangman_1{
+        position:absolute;
+        top:18.9%;
+        display: none;
+    }
+    #Hangman_2{
+        position:absolute;
+        top:18.9%;
+        display: none;
+    }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1 id="main_header">Sentence of <span id="doom">Doom</span></h1>
+		<div class="box">
+			<img src="hangman-0.svg">
+            <img id="Hangman_1" src="hangman-1.svg">
+            <img id="Hangman_2" src="hangman-2.svg">
+			<div class="box_container">
+			<div class="blank">
+				<div id="P" class="p">_</div>
+				<div id="H" class="h">_</div>
+				<div id="A" class="a">_</div>
+				<div id="R" class="r">_</div>
+                <div id="A" class="a">_</div>
+                <div id="O" class="o">_</div>
+                <div id="H" class="h">_</div>
+			</div>
+			<p>In ancient Egypt, a ____ was the king, considered a god and the divine intermediary between the gods and the people.</p>
+			<div class="Letter">
+			<div class="Fletters">
+				<div id="q" class="Q">Q</div>
+				<div id="w" class="W">W</div>
+				<div id="e" class="E">E</div>
+				<div id="r" class="R">R</div>
+				<div id="t" class="T">T</div>
+				<div id="y" class="Y">Y</div>
+				<div id="u" class="U">U</div>
+				<div id="i" class="I">I</div>
+				<div id="o" class="O">O</div>
+				<div id="p" class="P">P</div>
+			</div>
+			<div class="Sletters">
+				<div id="a" class="A">A</div>
+				<div id="s" class="S">S</div>
+				<div id="d" class="D">D</div>
+				<div id="f" class="F">F</div>
+				<div id="g" class="G">G</div>
+				<div id="h" class="H">H</div>
+				<div id="j" class="J">J</div>
+				<div id="k" class="K">K</div>
+				<div id="l" class="L">L</div>
+			</div>
+			<div class="Tletters">
+				<div id="z" class="Z">Z</div>
+				<div id="x" class="X">X</div>
+				<div id="c" class="C">C</div>
+				<div id="v" class="V">V</div>
+				<div id="b" class="B">B</div>
+				<div id="n" class="N">N</div>
+				<div id="m" class="M">M</div>
+			</div>
+			</div>
+		    </div>
+            <button type="button" onclick="enter()">S<br>U<br>B<br>M<br>I<br>T</button>
+		</div>
+	</div>
+    <script>
+        document.getElementById("a").addEventListener("click",function(){
+           let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="A";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="A";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "A";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "A";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "A";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "A";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "A";
+           }
+        });
+
+        document.getElementById("b").addEventListener("click",function(){
+           let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+          if(one == "_"){
+            document.getElementById("P").innerHTML="B";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="B";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "B";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "B";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "B";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "B";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "B";
+           }
+        });
+
+        document.getElementById("c").addEventListener("click",function(){
+          let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="C";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="C";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "C";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "C";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "C";
+           }else if(sex == "_"){
+            document.getElementById("O").innerHTML = "C";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "C";
+           }
+        });
+
+        document.getElementById("d").addEventListener("click",function(){
+          let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+          if(one == "_"){
+            document.getElementById("P").innerHTML="D";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="D";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "D";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "D";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "D";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "D";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "D";
+           }
+        });
+
+        document.getElementById("e").addEventListener("click",function(){
+           let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+          if(one == "_"){
+            document.getElementById("P").innerHTML="E";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="E";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "E";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "E";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "E";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "E";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "E";
+           }
+        });
+
+        document.getElementById("f").addEventListener("click",function(){
+           let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="F";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="F";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "F";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "F";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "F";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "F";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "F";
+           }
+        });
+
+        document.getElementById("g").addEventListener("click",function(){
+           let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+          if(one == "_"){
+            document.getElementById("P").innerHTML="G";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="G";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "G";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "G";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "G";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "G";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "G";
+           }
+        });
+
+        document.getElementById("h").addEventListener("click",function(){
+          let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="H";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="H";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "H";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "H";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "H";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "H";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "H";
+           }
+        });
+
+        document.getElementById("i").addEventListener("click",function(){
+          let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="I";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="I";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "I";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "I";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "I";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "I";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "I";
+           }
+        });
+
+        document.getElementById("j").addEventListener("click",function(){
+          let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="J";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="J";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "J";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "J";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "J";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "J";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "J";
+           }
+        });
+
+        document.getElementById("k").addEventListener("click",function(){
+           let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+          if(one == "_"){
+            document.getElementById("P").innerHTML="K";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="K";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "K";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "K";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "K";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "K";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "K";
+           }
+        });
+
+        document.getElementById("l").addEventListener("click",function(){
+          let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="L";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="L";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "L";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "L";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "L";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "L";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "L";
+           }
+        });
+
+         document.getElementById("m").addEventListener("click",function(){
+          let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+          if(one == "_"){
+            document.getElementById("P").innerHTML="M";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="M";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "M";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "M";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "M";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "M";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "M";
+           }
+        });
+
+          document.getElementById("n").addEventListener("click",function(){
+           let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="N";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="N";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "N";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "N";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "N";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "N";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "N";
+           }
+        });
+
+        document.getElementById("o").addEventListener("click",function(){
+           let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="O";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="O";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "O";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "O";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "O";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "O";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "O";
+           }
+        });
+
+        document.getElementById("p").addEventListener("click",function(){
+           let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="P";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="P";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "P";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "P";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "P";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "P";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "P";
+           }
+        });
+
+        document.getElementById("q").addEventListener("click",function(){
+          let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+          if(one == "_"){
+            document.getElementById("P").innerHTML="Q";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="Q";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "Q";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "Q";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "Q";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "Q";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "Q";
+           }
+        });
+        document.getElementById("r").addEventListener("click",function(){
+           let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="R";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="R";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "R";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "R";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "R";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "R";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "R";
+           }
+        });
+
+        document.getElementById("s").addEventListener("click",function(){
+          let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="S";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="S";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "S";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "S";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "S";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "S";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "S";
+           }
+        });
+
+        document.getElementById("t").addEventListener("click",function(){
+           let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="T";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="T";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "T";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "T";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "T";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "T";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "T";
+           }
+        });
+
+        document.getElementById("u").addEventListener("click",function(){
+          let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+          if(one == "_"){
+            document.getElementById("P").innerHTML="U";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="U";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "U";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "U";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "U";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "U";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "U";
+           }
+        });
+
+        document.getElementById("v").addEventListener("click",function(){
+         let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="V";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="V";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "V";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "V";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "V";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "V";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "V";
+           }
+        });
+
+        document.getElementById("w").addEventListener("click",function(){
+          let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="W";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="W";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "W";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "W";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "W";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "W";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "W";
+           }
+        });
+
+        document.getElementById("x").addEventListener("click",function(){
+          let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="X";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="X";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "X";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "X";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "X";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "X";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "X";
+           }
+        });
+
+        document.getElementById("y").addEventListener("click",function(){
+         let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="Y";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="Y";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "Y";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "Y";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "Y";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "Y";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "Y";
+           }
+        });
+
+        document.getElementById("z").addEventListener("click",function(){
+          let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "_"){
+            document.getElementById("P").innerHTML="Z";
+           }else if(two == "_"){
+            document.getElementById("H").innerHTML ="Z";
+           }else if(three == "_"){
+            document.getElementById("A").innerHTML = "Z";
+           }else if(four == "_"){
+            document.getElementById("R").innerHTML = "Z";
+           }else if(five == "_"){
+            document.getElementById("A").innerHTML = "Z";
+           }else if(six == "_"){
+            document.getElementById("O").innerHTML = "Z";
+           }else if(seven == "_"){
+            document.getElementById("H").innerHTML = "Z";
+           }
+        });
+        function enter(){
+            let one = document.getElementById("P").innerHTML;
+           let two = document.getElementById("H").innerHTML;
+           let three = document.getElementById("A").innerHTML;
+           let four = document.getElementById("R").innerHTML;
+           let five = document.getElementById("A").innerHTML;
+           let six = document.getElementById("O").innerHTML;
+           let seven = document.getElementById("H").innerHTML;
+           if(one == "P" && two == "H" && three == "A" && four == "R" && five == "A" && six == "O" && seven == "H"){
+            alert("correct");
+           }else{
+            alert("wrong");
+            let incorrectAttempts = 0;
+            let isCorrect = true;
+    if (false) {
+        incorrectAttempts+=1;
+        if (incorrectAttempts === 1) {
+            document.getElementById("Hangman_1").style.display = "block";
+        } else if (incorrectAttempts === 2) {
+            document.getElementById("Hangman_2").style.display = 'block';
+        }
+    }         
+    document.getElementById("P").innerHTML= "_";
+    document.getElementById("H").innerHTML= "_";
+    document.getElementById("A").innerHTML= "_";
+    document.getElementById("R").innerHTML= "_";
+    document.getElementById("A").innerHTML= "_";
+    document.getElementById("O").innerHTML= "_";
+    document.getElementById("H").innerHTML= "_";
+           }
+        }
+    </script>
+</body>
+</html>
