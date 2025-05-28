@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
     <head>
         <title>Flower</title>
@@ -94,4 +94,69 @@ window.onload = function () {
 };
 </script>
 </body>
+</html>
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                box-sizing: border-box;
+            }
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: black;
+            }
+            div{
+                font-size: 80px;
+                font-variant:small-caps;
+                font-weight: 800;
+                color:white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="demo"></div>
+        <script>
+            let name = prompt("Enter your name: ");
+            function stringOne(one,two,three,person){
+                let first = () => {
+                    document.getElementById("demo").innerHTML = "Isa"
+                }
+                setTimeout(first,1000);
+                one();
+                two();
+                three();
+                person();
+            }
+            function one(){
+                setTimeout(() =>{
+                document.getElementById("demo").innerHTML = "Kang"},2000);
+                }
+            function two(){
+                setTimeout(() => {
+                    document.getElementById("demo").innerHTML = "Malaking"
+                }, 3000);
+            }
+
+            function three(){
+                setTimeout(() => {
+                    document.getElementById("demo").innerHTML = "Gago"
+                }, 4000);
+            }
+
+            function personName(){
+                setTimeout(() => {
+                    document.getElementById("demo").innerHTML = name
+                },5000);
+            }
+            stringOne(one,two,three,personName);
+        </script>
+    </body>
 </html>
