@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author"  content="Ian">
+        <meta name="description" content="Recreation of Project">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Noise Transition</title>
+        <style>
+          *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+          }
+          body{
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transform: translateX(50px);
+            overflow: hidden;
+          }
+          .container{
+            padding:20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+          }
+          button{
+            width:50%;
+            margin-top:20px;
+            padding:20px;
+            border-radius:20px;
+            font-size:20;
+            font-variant:small-caps;
+            font-weight: 800;
+            border:none;
+          }
+          button:hover{
+            background-color: lightgrey;
+          }
+          button:focus{
+            background-color:grey;
+            border:1px solid white;
+          }
+          #circle{
+            transition: all 10s ease-in-out;
+          }
+          p{
+            color:white;
+            font-size:30px;
+            font-variant: small-caps;
+            font-weight: 800;
+            transform: translate(20px,-50px);
+            position: absolute;
+            transform: scale(0.5);
+            animation: name 1s ease-in infinite 0s both;   
+            opacity: 0;       
+          }
+
+          @keyframes name{
+            25%{
+              transform: translateY(-3px) scale(1.5);
+              opacity: 1;
+            }
+            50%{
+              transform: translate(0);
+            }
+          }
+
+          #demo_one{
+            top:10%;
+            display: none;
+          }
+          #demo_two{
+            top:20%;
+            left:5%;
+            display: none;
+          }
+          #demo_three{
+            top:90%;
+            right: 90%;
+            display: none;
+          }
+          #demo_four{
+            top:97%;
+            left:90%;
+            display: none;
+          }
+          #demo_five{
+            top:90%;
+            display: none;
+          }
+          #demo_six{
+            top:20%;
+            right:30%;
+            display: none;
+          }
+          #demo_seven{
+            top:6%;
+            right:10%;
+            display: none;
+          }
+          #demo_eight{
+            top:85%;
+            right:30%;
+            display: none;
+          }
+          #demo_nine{
+            top:99%;
+            left:25%;
+            display: none;
+          }
+          #demo_ten{
+            top:5%;
+            left:5%;
+            display: none;
+          }
+
+
+ 
+          @media screen and (max-width:800px){
+           svg{
+            width: 100%;
+            height: 400px;
+           }
+           body{
+            transform: translateX(-1px);
+           }
+          }
+        </style>
+    </head>
+    <body>
+        <p id="demo_one">&#128540;</p>
+        <p id="demo_two">&#128540;</p>
+        <p id="demo_three">&#128540;</p>
+        <p id="demo_four">&#128540;</p>
+        <p id="demo_five">&#128540;</p>
+        <p id="demo_seven">&#128540;</p>
+        <p id="demo_eight">&#128540;</p>
+        <p id="demo_nine">&#128540;</p>
+        <p id="demo_ten">&#128540;</p>
+        <div class="container">
+        <svg width="100%" height="400px">
+            <defs>
+                <filter id="myFilter">
+                   <feTurbulence type="fractalNoise" baseFrequency="0.3" numOctaves="0.3" result="noise"/>
+                   <feDisplacementMap in="SourceGraphic" in2="noise" scale="100" xChannelSelector="R" yChannelSelector="G"/>
+                </filter>
+                <mask id="myMask">
+                    <circle id="circle" cx="50%" cy="50%" r="0" fill="white" filter="url(#myFilter)"/>
+                </mask>
+            </defs>
+            <image id="svg_img" href="https://preview.redd.it/anong-context-nung-nakadila-si-alden-v0-q630lpmhcj0f1.jpeg?width=640&crop=smart&auto=webp&s=265b267ce9c905f6d9915ff45c644fe49e767d86"
+             width="100%" height="100%" mask="url(#myMask)" preserveAspectRatio="xMidYMid slice"/>
+        </svg>
+        <button type="button" onclick="myFunction()">Click</button>       
+        </div>
+        <p id="demo_six">&#128540;</p>
+        
+        <audio id="audio" width="300" >
+          <source src="Alden_Meme.mp3" type="audio/mp3">
+        </audio>
+        <script>
+            function counter(){
+                let num = 1;
+                return ()=>{
+                    num++;
+                    return num;
+                }
+            }
+            let count = counter();
+
+            let one = document.getElementById("demo_one");
+            let two = document.getElementById("demo_two");
+            let three = document.getElementById("demo_three");
+            let four = document.getElementById("demo_four");
+            let five = document.getElementById("demo_five");
+            let six = document.getElementById("demo_six");
+            let seven = document.getElementById("demo_seven");
+            let eight = document.getElementById("demo_eight");
+            let nine = document.getElementById("demo_nine");
+            let ten = document.getElementById("demo_ten");
+
+            function myFunction(){
+                let circle = document.getElementById("circle");
+                let play = document.getElementById("audio");
+                if(count() % 2 == 0){
+                  circle.style.r = "100%";
+                }else{
+                  circle.style.r = "0";
+                }
+                play.play();
+
+              setTimeout(()=>{
+                one.style.display = "block";
+              },3000);
+              setTimeout(()=>{
+                two.style.display = "block";
+              },4500);
+              setTimeout(()=>{
+                three.style.display = "block";
+              },5000);
+              setTimeout(()=>{
+                four.style.display = "block";
+              },6500);
+              setTimeout(()=>{
+                five.style.display = "block";
+              },7000);
+              setTimeout(()=>{
+                six.style.display = "block";
+              },8500);
+              setTimeout(()=>{
+                seven.style.display = "block";
+              },9000);
+              setTimeout(()=>{
+                eight.style.display = "block";
+              },10500);
+              setTimeout(()=>{
+                nine.style.display = "block";
+              },11000);
+              setTimeout(()=>{
+                ten.style.display = "block";
+              },12500);
+            }
+
+            
+
+            
+        </script>
+
+
+    </body>
+</html>
